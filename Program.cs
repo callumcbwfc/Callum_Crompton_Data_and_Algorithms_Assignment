@@ -11,7 +11,6 @@ namespace StarterCode_WayPoints
         static void Main(string[] args)
         {
             Console.WriteLine("=== Waypoints Assignment ===\n");
-Console.WriteLine("First commit test");
             // Build the full path to the CSV file
             string fullPath = FILE_PATH + fileName;
 
