@@ -3,7 +3,7 @@
 namespace StarterCode_WayPoints
 {
     // WayPoint class for one GPS waypoint, storing data for a waypoints from the provided CSV file.
-    // Starting this after looking at Week 3 Powerpoints and  recalling previous lab session knowledge
+    // Starting this class after looking at Week 3 Powerpoints and recalling previous lab session knowledge
     public class WayPoint
     {
         // private fields
@@ -26,6 +26,39 @@ namespace StarterCode_WayPoints
             this.description = description;
         }
 
-        // Getters and Setters will be added next
-    }
-}
+        // Getters and Setters
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public string Code
+        {
+            get { return code; }
+            set { code = value; }
+        }
+
+        public string Latitude
+        {
+            get { return latitude; }
+            set { latitude = value; }
+        }
+
+        public string Longitude
+        {
+            get { return longitude; }
+            set { longitude = value; }
+        }
+
+        public int Elevation
+        {
+            get { return elevation; }
+            set { elevation = value; }
+        }
+
+        public string Description
+        {
+            get { return description; }
+            set { description = value; }
+        }
