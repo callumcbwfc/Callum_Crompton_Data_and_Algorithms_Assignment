@@ -62,3 +62,12 @@ namespace StarterCode_WayPoints
             get { return description; }
             set { description = value; }
         }
+        // Display method, shows the waypoint in the format the client requested, as described in the assingment brief
+        public void Display()
+        {
+            Console.WriteLine("{" + Name + ", " + Code +
+                              ", pos[" + Longitude + "," + Latitude +
+                              "], h:" + Elevation + "m " + Description + "}");
+        }
+    }
+}
