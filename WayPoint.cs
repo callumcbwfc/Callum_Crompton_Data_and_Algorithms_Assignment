@@ -63,11 +63,12 @@ namespace StarterCode_WayPoints
             set { description = value; }
         }
         // Display method, shows the waypoint in the format the client requested, as described in the assingment brief
+        // Fixed Display method, definitely matches the format required by the client now (missed a comma next to "m " and description wasnt seperated correctly
         public void Display()
         {
             Console.WriteLine("{" + Name + ", " + Code +
                               ", pos[" + Longitude + "," + Latitude +
-                              "], h:" + Elevation + "m " + Description + "}");
+                              "], h:" + Elevation + "m, " + Description + "}");
         }
     }
 }
