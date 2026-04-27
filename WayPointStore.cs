@@ -17,7 +17,7 @@ namespace StarterCode_WayPoints
         }
 
         // AddWaypoint method, adds a waypoint to the next available space in the array. from week 4's Stack and Queue examples from lecture and labs.
-    public void AddWaypoint(WayPoint wp)
+        public void AddWaypoint(WayPoint wp)
         {
             if (count < waypoints.Length)
             {
@@ -27,6 +27,17 @@ namespace StarterCode_WayPoints
             else
             {
                 Console.WriteLine("Store is full!");
+            }
+            // DisplayAll method, loops through the array and displays every waypoint
+            {
+                Console.WriteLine("=== All Waypoints (" + count + " total) ===");
+
+                for (int i = 0; i < count; i++)
+                {
+                    waypoints[i].Display();
+                }
+
+                Console.WriteLine("=== End of waypoints ===\n");
             }
         }
     }
