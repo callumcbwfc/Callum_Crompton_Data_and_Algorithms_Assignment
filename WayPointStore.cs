@@ -16,6 +16,18 @@ namespace StarterCode_WayPoints
             count = 0;
         }
 
-        // AddWaypoint method will be added next
+        // AddWaypoint method, adds a waypoint to the next available space in the array. from week 4's Stack and Queue examples from lecture and labs.
+    public void AddWaypoint(WayPoint wp)
+        {
+            if (count < waypoints.Length)
+            {
+                waypoints[count] = wp;
+                count = count + 1;
+            }
+            else
+            {
+                Console.WriteLine("Store is full!");
+            }
+        }
     }
-} 
+}
