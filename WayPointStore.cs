@@ -40,5 +40,17 @@ namespace StarterCode_WayPoints
                 Console.WriteLine("=== End of waypoints ===\n");
             }
         }
+        //DisplayAll, goes through the array and displays every waypoint
+        public void DisplayAll()
+        {
+            Console.WriteLine("=== All Waypoints (" + count + " total) ===");
+
+            for (int i = 0; i < count; i++)
+            {
+                waypoints[i].Display();
+            }
+
+            Console.WriteLine("=== End of waypoints ===\n");
+        }
     }
 }
