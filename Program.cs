@@ -24,6 +24,17 @@ namespace StarterCode_WayPoints
             // Display using the store
             myStore.DisplayAll();
             Console.WriteLine("Press any key to exit...");
+            // Testing the Route class
+            Console.WriteLine("=== Testing Route ===");
+            Route myRoute = new Route("TestRoute");
+
+            WayPoint wp1 = new WayPoint("Ambleside", "AMS", "5425.594N", "00258.150W", 42, "Test");
+            WayPoint wp2 = new WayPoint("Keswick", "KEK", "5436.572N", "00308.481W", 93, "Test");
+
+            myRoute.AddWaypoint(wp1);
+            myRoute.AddWaypoint(wp2);
+
+            myRoute.DisplayRoute();
             Console.ReadKey();
         }
 
