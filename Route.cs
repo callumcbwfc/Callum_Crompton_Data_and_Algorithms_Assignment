@@ -61,5 +61,39 @@ namespace StarterCode_WayPoints
 
             Console.WriteLine("End of route.\n");
         }
+        //Insert method inserts a waypoint at a specific position
+        // Position 1=front, too large=end
+        public void InsertWaypoint(WayPoint wp, int position)
+        {
+            if (position <= 1)
+            {
+                // Is added to the front
+                RouteLink newLink = new RouteLink(wp);
+                newLink.Next = head;
+                head = newLink;
+                return;
+            }
+
+            RouteLink current = head;
+            int currentPos = 1;
+
+            while (current != null && currentPos < position - 1)
+            {
+                current = current.Next;
+                currentPos++;
+            }
+
+            if (current == null)
+            {
+                // Position too large=theyre added to the end
+                AddWaypoint(wp);
+            }
+            else
+            {
+                RouteLink newLink = new RouteLink(wp);
+                newLink.Next = current.Next;
+                current.Next = newLink;
+            }
+        }
     }
 }
