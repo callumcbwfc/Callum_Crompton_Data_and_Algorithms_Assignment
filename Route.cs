@@ -2,18 +2,51 @@
 
 namespace StarterCode_WayPoints
 {
-    // Route class - ordered list of waypoints using a linked list
+    // Route class - this holds an ordered list of waypoints as a linked list
     public class Route
     {
-        private RouteLink head;
-        private string routeName;
+        private RouteLink head; // points to first waypoint in the route
+        private string routeName; // name of route, e.g. "DaltonBuilding"
 
+        // Constructor creates a new empty route with a name
         public Route(string name)
         {
             routeName = name;
-            head = null;
+            head = null; // route starts empty
         }
 
-        // AddWaypoint method
+        // AddWaypoint, adds a waypoint to the end of the route
+        public void AddWaypoint(WayPoint wp)
+        {
+            RouteLink newLink = new RouteLink(wp);
+
+            if (head == null)
+            {
+                head = newLink;      // first waypoint in the route
+            }
+            else
+            {
+                RouteLink current = head;
+                while (current.Next != null)
+                {
+                    current = current.Next;
+                }
+                current.Next = newLink;
+            }
+        }
+
+        // Inner class for each link in the route
+        //routelink holds a waypoint and points to the next link
+        private class RouteLink
+        {
+            public WayPoint Data { get; set; }
+            public RouteLink Next { get; set; }
+
+            public RouteLink(WayPoint wp)
+            {
+                Data = wp;
+                Next = null;
+            }
+        }
     }
 }
