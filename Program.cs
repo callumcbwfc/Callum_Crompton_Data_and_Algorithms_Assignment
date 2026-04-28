@@ -11,13 +11,18 @@ namespace StarterCode_WayPoints
         static void Main(string[] args)
         {
             Console.WriteLine("=== Waypoints Assignment ===\n");
-            // Builds the full path to the CSV file
+
             string fullPath = FILE_PATH + fileName;
 
-            // tells the original method to read and display all waypoints
-            readDisplayFileWayPoints(fullPath);
+            // Counts the waypoints and creates the store
+            int numWaypoints = CountWaypointsInFile(fullPath);
+            WaypointStore myStore = new WaypointStore(numWaypoints);
 
-            Console.WriteLine("\n=== End of waypoints display ===");
+            // Reads the csv file into the store
+            ReadFileIntoStore(fullPath, myStore);
+
+            // Display using the store
+            myStore.DisplayAll();
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
         }
