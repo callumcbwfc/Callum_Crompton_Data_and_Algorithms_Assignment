@@ -47,7 +47,7 @@ namespace StarterCode_WayPoints
                 Data = wp;
                 Next = null;
             }
-        }        // DisplayRoute shows the name and all waypoints in the route
+        } // DisplayRoute shows the name and all waypoints in the route
         public void DisplayRoute()
         {
             Console.WriteLine("Route :" + routeName + ":");
