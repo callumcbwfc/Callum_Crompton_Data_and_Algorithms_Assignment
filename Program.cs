@@ -11,10 +11,10 @@ namespace StarterCode_WayPoints
         static void Main(string[] args)
         {
             Console.WriteLine("=== Waypoints Assignment ===\n");
-            // Build the full path to the CSV file
+            // Builds the full path to the CSV file
             string fullPath = FILE_PATH + fileName;
 
-            // Call the original method to read and display all waypoints
+            // tells the original method to read and display all waypoints
             readDisplayFileWayPoints(fullPath);
 
             Console.WriteLine("\n=== End of waypoints display ===");
@@ -92,6 +92,23 @@ namespace StarterCode_WayPoints
 
             double elevationFeet = Double.Parse(elevationStr.TrimEnd(unitChars));
             return (int)(elevationFeet / 3.142);
+        }
+        // Counts how many waypoints are in the file
+        static int CountWaypointsInFile(string fileName)
+        {
+            string[] lines = File.ReadAllLines(fileName);
+            int count = 0;
+            int lineNumber = 0;
+
+            foreach (string line in lines)
+            {
+                lineNumber++;
+                if (lineNumber != 1 && line != "")
+                {
+                    count++;
+                }
+            }
+            return count;
         }
     }
 }
