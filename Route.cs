@@ -47,6 +47,19 @@ namespace StarterCode_WayPoints
                 Data = wp;
                 Next = null;
             }
+        }        // DisplayRoute shows the name and all waypoints in the route
+        public void DisplayRoute()
+        {
+            Console.WriteLine("Route :" + routeName + ":");
+
+            RouteLink current = head;
+            while (current != null)
+            {
+                current.Data.Display();
+                current = current.Next;
+            }
+
+            Console.WriteLine("End of route.\n");
         }
     }
 }
