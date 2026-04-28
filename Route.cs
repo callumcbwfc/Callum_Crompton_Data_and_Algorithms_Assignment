@@ -95,5 +95,34 @@ namespace StarterCode_WayPoints
                 current.Next = newLink;
             }
         }
+        // RemoveWaypoint removes a waypoint from the route by its name, in case the route needs to change due to weather changes or safety issues.
+        // This simple version removes the first match found, used here as its in the marksheet for a higher grade percentage
+        public void RemoveWaypoint(string waypointName)
+        {
+            if (head == null)
+            {
+                // if the route is empty/nothing to remove
+                return;
+            }
+
+            // Checks if the first waypoint is the one that needs removing
+            if (head.Data.Name.Equals(waypointName))
+            {
+                head = head.Next;   // removes the first link
+                return;
+            }
+
+            // Looks through the rest of the route
+            RouteLink current = head;
+            while (current.Next != null)
+            {
+                if (current.Next.Data.Name.Equals(waypointName))
+                {
+                    current.Next = current.Next.Next;   // skips over the one that needs removing
+                    return;
+                }
+                current = current.Next;
+            }
+        }
     }
 }
