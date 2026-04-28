@@ -110,5 +110,30 @@ namespace StarterCode_WayPoints
             }
             return count;
         }
+        // Reads the UK_Waypoints.csv file and add each waypoint to the store
+        static void ReadFileIntoStore(string fileName, WaypointStore store)
+        {
+            string[] lines = File.ReadAllLines(fileName);
+            int lineNumber = 0;
+
+            foreach (string line in lines)
+            {
+                lineNumber++;
+                if (lineNumber != 1 && line != "")
+                {
+                    string[] parts = line.Split(',');
+
+                    string name = parts[0];
+                    string code = parts[1];
+                    string lat = parts[3];
+                    string lon = parts[4];
+                    int elev = convertElevationToMeters(parts[5]);
+                    string desc = buildDescription(parts);
+
+                    WayPoint wp = new WayPoint(name, code, lat, lon, elev, desc);
+                    store.AddWaypoint(wp);
+                }
+            }
+        }
     }
 }
