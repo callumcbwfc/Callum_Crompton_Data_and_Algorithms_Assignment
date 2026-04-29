@@ -52,5 +52,18 @@ namespace StarterCode_WayPoints
 
             Console.WriteLine("=== End of waypoints ===\n");
         }
+        // SearchByName method searches for a waypoint by name. Search feature in the marking criteria
+        // Returns the first match or null if not found
+        public WayPoint SearchByName(string nameToFind)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                if (waypoints[i].Name.Equals(nameToFind))
+                {
+                    return waypoints[i];
+                }
+            }
+            return null; // not found
+        }
     }
 }
