@@ -96,7 +96,7 @@ namespace StarterCode_WayPoints
             }
         }
         // RemoveWaypoint removes a waypoint from the route by its name, in case the route needs to change due to weather changes or safety issues.
-        // This simple version removes the first match found, used here as its in the marksheet for a higher grade percentage
+        // Removes the first match found, used here as its in the marksheet for a higher grade percentage
         public void RemoveWaypoint(string waypointName)
         {
             if (head == null)

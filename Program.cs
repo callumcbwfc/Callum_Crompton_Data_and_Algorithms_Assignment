@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace StarterCode_WayPoints
 {
@@ -35,6 +36,19 @@ namespace StarterCode_WayPoints
             myRoute.AddWaypoint(wp2);
 
             myRoute.DisplayRoute();
+            //New test that tests editing the route (insert and remove)
+            Console.WriteLine("=== Testing Route editing ===");
+            Route testRoute = new Route("TestEditingRoute");
+
+            WayPoint testwp1 = new WayPoint("Ambleside", "AMS", "5425.594N", "00258.150W", 42, "Test1");
+            WayPoint testwp2 = new WayPoint("Keswick", "KEK", "5436.572N", "00308.481W", 93, "Test2");
+
+            testRoute.AddWaypoint(testwp1); // had to change the wp1 and wp2 to testwp1/ 2 as it clashed with the previous test
+            testRoute.AddWaypoint(testwp2);
+            testRoute.DisplayRoute();
+
+            testRoute.RemoveWaypoint("Keswick");
+            testRoute.DisplayRoute();
             Console.ReadKey();
         }
 
