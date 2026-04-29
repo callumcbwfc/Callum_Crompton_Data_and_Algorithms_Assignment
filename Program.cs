@@ -22,7 +22,7 @@ namespace StarterCode_WayPoints
             // Reads the csv file into the store
             ReadFileIntoStore(fullPath, myStore);
 
-            // Display using the store
+            //Display using the store
             myStore.DisplayAll();
             Console.WriteLine("Press any key to exit...");
             // Testing the Route class
@@ -49,6 +49,22 @@ namespace StarterCode_WayPoints
 
             testRoute.RemoveWaypoint("Keswick");
             testRoute.DisplayRoute();
+            //Final test to show all features working
+            Console.WriteLine("=== Final Test - All Features ===");
+            Route myFinalRoute = new Route("MyOldHomeToMMU");
+
+            WayPoint testestwp1 = new WayPoint("Ambleside", "AMS", "5425.594N", "00258.150W", 42, "Test1");
+            WayPoint testestwp2 = new WayPoint("Keswick", "KEK", "5436.572N", "00308.481W", 93, "Test2");
+
+            myFinalRoute.AddWaypoint(testestwp1);
+            myFinalRoute.AddWaypoint(testestwp2);
+            myFinalRoute.DisplayRoute();
+
+            myFinalRoute.InsertWaypoint(new WayPoint("Grasmere", "GRC", "5427.454N", "00301.423W", 62, "Test insert"), 2);
+            myFinalRoute.DisplayRoute();
+
+            myFinalRoute.RemoveWaypoint("Keswick");
+            myFinalRoute.DisplayRoute();
             Console.ReadKey();
         }
 
