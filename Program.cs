@@ -11,22 +11,21 @@ namespace StarterCode_WayPoints
 
         static void Main(string[] args)
         {
-            Console.WriteLine("=== Waypoints Assignment ===\n");
+            Console.WriteLine("=== Waypoints Assignment - Final ===\n");
 
             string fullPath = FILE_PATH + fileName;
 
             // Counts the waypoints and creates the store
             int numWaypoints = CountWaypointsInFile(fullPath);
             WaypointStore myStore = new WaypointStore(numWaypoints);
-
             // Reads the csv file into the store
             ReadFileIntoStore(fullPath, myStore);
-
+           
             //Display using the store
             myStore.DisplayAll();
 
-            // Simple menu to test Route features
-            Console.WriteLine("=== Route Testing Menu ===");
+            //Final test of Route features
+            Console.WriteLine("=== Testing Route Features ===");
             Route testRoute = new Route("MyTestRoute");
 
             WayPoint wp1 = new WayPoint("Ambleside", "AMS", "5425.594N", "00258.150W", 42, "Test1");
@@ -36,7 +35,6 @@ namespace StarterCode_WayPoints
             testRoute.AddWaypoint(wp2);
             testRoute.DisplayRoute();
 
-            // Test insert and remove
             testRoute.InsertWaypoint(new WayPoint("Grasmere", "GRC", "5427.454N", "00301.423W", 62, "Test insert"), 2);
             testRoute.DisplayRoute();
 
