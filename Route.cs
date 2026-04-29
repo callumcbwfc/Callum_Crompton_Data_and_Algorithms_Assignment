@@ -124,5 +124,26 @@ namespace StarterCode_WayPoints
                 current = current.Next;
             }
         }
+        //Reverse the route/reverses the order of waypoints
+        //Additional feature for Distinction marks
+        public void ReverseRoute()
+        {
+            if (head == null || head.Next == null)
+                return;   // nothing to reverse
+
+            RouteLink previous = null;
+            RouteLink current = head;
+            RouteLink next = null;
+
+            while (current != null)
+            {
+                next = current.Next;
+                current.Next = previous;
+                previous = current;
+                current = next;
+            }
+
+            head = previous;
+        }
     }
 }
