@@ -11,7 +11,7 @@ namespace StarterCode_WayPoints
 
         static void Main(string[] args)
         {
-            Console.WriteLine("=== Waypoints Assignment - Final ===\n");
+            Console.WriteLine("=== Waypoints Assignment - Final Version ===\n");
 
             string fullPath = FILE_PATH + fileName;
 
@@ -25,7 +25,7 @@ namespace StarterCode_WayPoints
             myStore.DisplayAll();
 
             //Final test of Route features
-            Console.WriteLine("=== Testing Route Features ===");
+            Console.WriteLine("=== Final Route Test ===");
             Route testRoute = new Route("MyTestRoute");
 
             WayPoint wp1 = new WayPoint("Ambleside", "AMS", "5425.594N", "00258.150W", 42, "Test1");
