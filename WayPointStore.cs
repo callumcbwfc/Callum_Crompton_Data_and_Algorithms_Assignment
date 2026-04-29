@@ -65,5 +65,21 @@ namespace StarterCode_WayPoints
             }
             return null; // not found
         }
+        // SearchByHeight method finds waypoints under a given height
+        // Another extra feature for Distinction marks
+        public void SearchByHeight(int maxHeight)
+        {
+            Console.WriteLine("=== Waypoints under " + maxHeight + "m ===");
+
+            for (int i = 0; i < count; i++)
+            {
+                if (waypoints[i].Elevation <= maxHeight)
+                {
+                    waypoints[i].Display();
+                }
+            }
+
+            Console.WriteLine("=== End of height search ===\n");
+        }
     }
 }
