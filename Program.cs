@@ -24,47 +24,26 @@ namespace StarterCode_WayPoints
 
             //Display using the store
             myStore.DisplayAll();
-            Console.WriteLine("Press any key to exit...");
-            // Testing the Route class
-            Console.WriteLine("=== Testing Route ===");
-            Route myRoute = new Route("TestRoute");
 
-            WayPoint wp1 = new WayPoint("Ambleside", "AMS", "5425.594N", "00258.150W", 42, "Test");
-            WayPoint wp2 = new WayPoint("Keswick", "KEK", "5436.572N", "00308.481W", 93, "Test");
+            // Simple menu to test Route features
+            Console.WriteLine("=== Route Testing Menu ===");
+            Route testRoute = new Route("MyTestRoute");
 
-            myRoute.AddWaypoint(wp1);
-            myRoute.AddWaypoint(wp2);
+            WayPoint wp1 = new WayPoint("Ambleside", "AMS", "5425.594N", "00258.150W", 42, "Test1");
+            WayPoint wp2 = new WayPoint("Keswick", "KEK", "5436.572N", "00308.481W", 93, "Test2");
 
-            myRoute.DisplayRoute();
-            //New test that tests editing the route (insert and remove)
-            Console.WriteLine("=== Testing Route editing ===");
-            Route testRoute = new Route("TestEditingRoute");
+            testRoute.AddWaypoint(wp1);
+            testRoute.AddWaypoint(wp2);
+            testRoute.DisplayRoute();
 
-            WayPoint testwp1 = new WayPoint("Ambleside", "AMS", "5425.594N", "00258.150W", 42, "Test1");
-            WayPoint testwp2 = new WayPoint("Keswick", "KEK", "5436.572N", "00308.481W", 93, "Test2");
-
-            testRoute.AddWaypoint(testwp1); // had to change the wp1 and wp2 to testwp1/ 2 as it clashed with the previous test
-            testRoute.AddWaypoint(testwp2);
+            // Test insert and remove
+            testRoute.InsertWaypoint(new WayPoint("Grasmere", "GRC", "5427.454N", "00301.423W", 62, "Test insert"), 2);
             testRoute.DisplayRoute();
 
             testRoute.RemoveWaypoint("Keswick");
             testRoute.DisplayRoute();
-            //Final test to show all features working
-            Console.WriteLine("=== Final Test - All Features ===");
-            Route myFinalRoute = new Route("MyOldHomeToMMU");
 
-            WayPoint testestwp1 = new WayPoint("Ambleside", "AMS", "5425.594N", "00258.150W", 42, "Test1");
-            WayPoint testestwp2 = new WayPoint("Keswick", "KEK", "5436.572N", "00308.481W", 93, "Test2");
-
-            myFinalRoute.AddWaypoint(testestwp1);
-            myFinalRoute.AddWaypoint(testestwp2);
-            myFinalRoute.DisplayRoute();
-
-            myFinalRoute.InsertWaypoint(new WayPoint("Grasmere", "GRC", "5427.454N", "00301.423W", 62, "Test insert"), 2);
-            myFinalRoute.DisplayRoute();
-
-            myFinalRoute.RemoveWaypoint("Keswick");
-            myFinalRoute.DisplayRoute();
+            Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
         }
 
@@ -78,7 +57,7 @@ namespace StarterCode_WayPoints
             foreach (string line in linesInFile)
             {
                 lineNumber++;
-                if (lineNumber != 1 && line != "")   // skips header and empty lines
+                if (lineNumber != 1 && line != "")   //skips header and empty lines
                 {
                     string[] featuresInLine = line.Split(',');
 
