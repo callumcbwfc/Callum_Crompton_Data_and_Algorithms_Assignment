@@ -16,15 +16,17 @@ namespace StarterCode_WayPoints
             string fullPath = FILE_PATH + fileName;
 
             // Counts the waypoints and creates the store
+            //Necessary as the array in the waypointstore class requires a fixed size
             int numWaypoints = CountWaypointsInFile(fullPath);
             WaypointStore myStore = new WaypointStore(numWaypoints);
+            
             // Reads the csv file into the store
             ReadFileIntoStore(fullPath, myStore);
            
-            //Display using the store
+            //Display using the store, showing all waypoints from the file
             myStore.DisplayAll();
 
-            //Final test of Route features
+            //Final test of Route features, tests the additional features added for additional marks
             Console.WriteLine("=== Final Route Test ===");
             Route testRoute = new Route("MyTestRoute");
 
@@ -47,6 +49,7 @@ namespace StarterCode_WayPoints
 
         // Main method from the starter code
         // Reads the CSV file and displays each waypoint
+        // The original method of displaying waypoints before the store was introduced.
         static void readDisplayFileWayPoints(string fileName)
         {
             string[] linesInFile = File.ReadAllLines(fileName);
@@ -71,7 +74,7 @@ namespace StarterCode_WayPoints
             }
         }
 
-        // Method to display one waypoint
+        // Method to display one waypoint, matches the format the client wants
         static void displayWayPoint(string name, string code, string latitude, string longitude, int elevation, string description)
         {
             Console.Write("WayPoint: " + name + ",Code:" + code);
@@ -83,7 +86,7 @@ namespace StarterCode_WayPoints
         // Builds the description because it can contain commas
         static string buildDescription(string[] featuresInLine)
         {
-            StringBuilder description = new StringBuilder();
+            StringBuilder description = new StringBuilder();  //StringBuilder was used so the commas dont break the split
             int arrayPosition = 11;   // description starts at position 11
             while (arrayPosition < featuresInLine.Length)
             {
@@ -105,6 +108,7 @@ namespace StarterCode_WayPoints
         }
 
         // Converts feet to metres if necessary
+        //some waypoints have 'f' or 'm' at the end
         static int convertElevationToMeters(string elevationStr)
         {
             char[] unitChars = { 'f', 't', 'M', 'm' };
@@ -117,6 +121,7 @@ namespace StarterCode_WayPoints
             return (int)(elevationFeet / 3.142);
         }
         // Counts how many waypoints are in the file
+        //The array in WayPointStore requires this method to be created with the correct size
         static int CountWaypointsInFile(string fileName)
         {
             string[] lines = File.ReadAllLines(fileName);
@@ -134,6 +139,7 @@ namespace StarterCode_WayPoints
             return count;
         }
         // Reads the UK_Waypoints.csv file and add each waypoint to the store
+        //Main method that loads all of the data into the array store
         static void ReadFileIntoStore(string fileName, WaypointStore store)
         {
             string[] lines = File.ReadAllLines(fileName);
