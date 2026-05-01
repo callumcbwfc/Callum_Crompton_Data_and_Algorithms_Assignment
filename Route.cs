@@ -47,7 +47,7 @@ namespace StarterCode_WayPoints
                 Data = wp;
                 Next = null;
             }
-        } // DisplayRoute shows the name and all waypoints in the route
+        } // DisplayRoute shows the name and all waypoints in the route, follows the requirements set by the client
         public void DisplayRoute()
         {
             Console.WriteLine("Route :" + routeName + ":");
@@ -63,6 +63,7 @@ namespace StarterCode_WayPoints
         }
         //Insert method inserts a waypoint at a specific position
         // Position 1=front, too large=end
+        //used in report for line by line analysis, added in code for additional marks
         public void InsertWaypoint(WayPoint wp, int position)
         {
             if (position <= 1)
