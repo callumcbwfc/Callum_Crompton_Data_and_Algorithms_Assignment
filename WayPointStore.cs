@@ -3,20 +3,22 @@
 namespace StarterCode_WayPoints
 {
     // WaypointStore, holds all of the waypoints in an array
-    // Based on array-backed Stack and Queue examples from week 3 lecture powerpoint and lab session
+    //Client asked for something compact for the large list of waypoints in the csv file
     public class WaypointStore
     {
-        private WayPoint[] waypoints;
+        private WayPoint[] waypoints; //the actual array that holds the waypoints
         private int count;   // how many waypoints added so far
 
         // Constructor - creates the array of any given size
+        //arrays are a fixed size so knowing the size is necessary first
         public WaypointStore(int maxSize)
         {
             waypoints = new WayPoint[maxSize];
-            count = 0;
+            count = 0; //nothing added yet
         }
 
-        // AddWaypoint method, adds a waypoint to the next available space in the array. from week 4's Stack and Queue examples from lecture and labs.
+        // AddWaypoint method, adds a waypoint to the next available space in the array.
+        // from week 4's Stack and Queue examples from lecture and labs. 
         public void AddWaypoint(WayPoint wp)
         {
             if (count < waypoints.Length)
@@ -40,7 +42,7 @@ namespace StarterCode_WayPoints
                 Console.WriteLine("=== End of waypoints ===\n");
             }
         }
-        //DisplayAll, goes through the array and displays every waypoint
+        //DisplayAll, loops through the array and displays every waypoint in csv file
         public void DisplayAll()
         {
             Console.WriteLine("=== All Waypoints (" + count + " total) ===");
