@@ -4,8 +4,9 @@ namespace StarterCode_WayPoints
 {
     // Route class - this holds an ordered list of waypoints as a linked list
     public class Route
-    {
-        private RouteLink head; // points to first waypoint in the route
+
+    { // '?' added to RouteLink totell visual studio it can be null, warning removed
+        private RouteLink? head; // points to first waypoint in the route
         private string routeName; // name of route, e.g. "DaltonBuilding"
 
         // Constructor creates a new empty route with a name
@@ -40,7 +41,7 @@ namespace StarterCode_WayPoints
         private class RouteLink
         {
             public WayPoint Data { get; set; }
-            public RouteLink Next { get; set; }
+            public RouteLink? Next { get; set; } // '?' added to RouteLink totell VS it can be null, warning removed
 
             public RouteLink(WayPoint wp)
             {
@@ -52,7 +53,7 @@ namespace StarterCode_WayPoints
         {
             Console.WriteLine("Route :" + routeName + ":");
 
-            RouteLink current = head;
+            RouteLink? current = head; // '?' added, since head has been declared as null from our previous '?', current must be also be declared null
             while (current != null)
             {
                 current.Data.Display();
@@ -75,12 +76,12 @@ namespace StarterCode_WayPoints
                 return;
             }
 
-            RouteLink current = head;
+            RouteLink current = head!; // '!' tells VS this cannot be null at this point in the code
             int currentPos = 1;
 
             while (current != null && currentPos < position - 1)
             {
-                current = current.Next;
+                current = current.Next!; // '!' added to remove warning, ! tells VS that it cannot be null at this stage
                 currentPos++;
             }
 
@@ -114,10 +115,10 @@ namespace StarterCode_WayPoints
             }
 
             // Looks through the rest of the route
-            RouteLink current = head;
+            RouteLink current = head!; // '!' tells VS this cannot be null at this point in the code
             while (current.Next != null)
             {
-                if (current.Next.Data.Name.Equals(waypointName))
+                if (current.Next!.Data.Name.Equals(waypointName))
                 {
                     current.Next = current.Next.Next;   // skips over the one that needs removing
                     return;
@@ -132,13 +133,13 @@ namespace StarterCode_WayPoints
             if (head == null || head.Next == null)
                 return;   // nothing to reverse
 
-            RouteLink previous = null;
+            RouteLink previous = null!; // '!' added to remove warning, ! tells VS that it cannot be null at this stage
             RouteLink current = head;
-            RouteLink next = null;
+            RouteLink next = null!; // '!' added to remove warning, ! tells VS that it cannot be null at this stage
 
             while (current != null)
             {
-                next = current.Next;
+                next = current.Next!;
                 current.Next = previous;
                 previous = current;
                 current = next;

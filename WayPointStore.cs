@@ -65,7 +65,7 @@ namespace StarterCode_WayPoints
                     return waypoints[i];
                 }
             }
-            return null; // not found
+            return null!; // not found           // '!' added to remove warning, ! tells VS that it cannot be null at this stage
         }
         // SearchByHeight method finds waypoints under a given height
         // Another extra feature for Distinction marks
